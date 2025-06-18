@@ -1,0 +1,1 @@
+export type IconPack = 'fa' | 'md' | 'bs' | 'ci' | 'io' | 'sl' | 'cg' | 'lu' | 'pi';
