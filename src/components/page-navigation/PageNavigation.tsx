@@ -69,9 +69,9 @@ function PageNavigation() {
                   return (
                     <div
                       key={idx}
-                      className='group relative m-auto transition-[height] md:transition-[width] duration-300 ease-in-out w-[40px] hover:w-[75px] h-[45px] hover:h-[75px] md:h-auto md:hover:h-auto flex-center'
+                      className='group relative m-auto transition-[height] md:transition-[width] duration-300 ease-in-out w-full md:w-[40px] hover:w-[75px] h-[45px] hover:h-[75px] md:h-auto md:hover:h-auto flex-center'
                     >
-                      <div className='absolute w-full border border-dashed border-black m-0 transform md:transform-none rotate-90 md:rotate-none'></div>
+                      <div className='absolute w-full border border-dashed border-black m-0 rotate-90 md:rotate-none'></div>
                       <div className='z-1 flex-center invisible group-hover:visible'>
                         <AddFabButton onAddClick={() => addNewTabToIndex(idx - 1)} />
                       </div>
@@ -82,7 +82,7 @@ function PageNavigation() {
                     <button
                       key={idx}
                       type='button'
-                      className='border border-gray-200 bg-white text-gray-900 hover:bg-gray-100 font-medium rounded-lg text-sm px-2.5 py-1.5 text-center inline-flex items-center gap-1.5 cursor-pointer'
+                      className='z-1 border border-gray-200 bg-white text-gray-900 hover:bg-gray-100 font-medium rounded-lg text-sm px-2.5 py-1.5 text-center inline-flex items-center gap-1.5 cursor-pointer'
                       onClick={appendNewTab}
                     >
                       <DynamicIcon pack='io' iconName='IoIosAdd' size={20} />
