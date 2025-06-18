@@ -12,9 +12,7 @@ const config: Config = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  testPathIgnorePatterns: [
-    '<rootDir>/src/__tests__/test-utils.tsx',
-  ],
+  testPathIgnorePatterns: ['<rootDir>/src/__tests__/test-utils.tsx'],
 };
 
 export default config;

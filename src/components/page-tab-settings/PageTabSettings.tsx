@@ -1,7 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { DynamicIcon } from '../common/dynamic-icon/DynamicIcon';
+import type { Tab } from '../../types';
+import { useAppDispatch } from '../../store/hookes';
+import { moveTabToFirstPlace, removeTab } from '../../store/features/tabs/tabsSlice';
 
-function PageTabSettings() {
+function PageTabSettings({ id }: Pick<Tab, 'id'>) {
+  const dispatch = useAppDispatch();
   const [visible, setVisible] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +46,10 @@ function PageTabSettings() {
 
         {/* Body */}
         <ul className='py-1'>
-          <li className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'>
+          <li
+            className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'
+            onClick={() => dispatch(moveTabToFirstPlace(id))}
+          >
             <DynamicIcon pack='io' iconName='IoIosFlag' color='blue' size={18} /> Set as first page
           </li>
 
@@ -60,13 +67,13 @@ function PageTabSettings() {
 
           <hr className='text-gray-200 mx-3 my-1' />
 
-          <li className='w-full flex items-center justify-start gap-1.5 px-3 py-2  cursor-pointer text-red-600 hover:bg-gray-50'>
+          <li
+            className='w-full flex items-center justify-start gap-1.5 px-3 py-2  cursor-pointer text-red-600 hover:bg-gray-50'
+            onClick={() => dispatch(removeTab(id))}
+          >
             <DynamicIcon pack='lu' iconName='LuTrash2' size={18} color='red' /> Delete
           </li>
         </ul>
-
-        {/* Arrow (optional for Popper.js positioning) */}
-        <div data-popper-arrow></div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import reducer, { setActiveTab, setTabs, addTabBetween, removeTab, type TabsState } from './tabsSlice';
+import reducer, { setActiveTab, setTabs, moveTabToFirstPlace, addTabBetween, removeTab, type TabsState } from './tabsSlice';
 import type { Tab } from '../../../types';
 
 describe('tabsSlice reducer', () => {
@@ -38,7 +38,7 @@ describe('tabsSlice reducer', () => {
 
     // The new tab should be inserted after index 0
     expect(nextState.tabs.length).toBe(prevState.tabs.length + 1);
-    expect(nextState.tabs[1].label).toBe(`Tab ${prevState.tabs.length + 1}`);
+    expect(nextState.tabs[1].label).toBe('New Tab');
   });
 
   it('should handle removeTab and clear activeTabId if removed', () => {
@@ -61,5 +61,24 @@ describe('tabsSlice reducer', () => {
     expect(nextState.tabs.find((tab) => tab.id === '2')).toBeUndefined();
     // activeTabId remains unchanged since removed tab id !== activeTabId
     expect(nextState.activeTabId).toBe('1');
+  });
+
+  it('should move the tab with the given ID to the first position', () => {
+    const newState = reducer(initialState, moveTabToFirstPlace('3'));
+
+    expect(newState.tabs[0].id).toBe('3');
+    expect(newState.tabs.map((t) => t.id)).toEqual(['3', '1', '2']);
+  });
+
+  it('should do nothing if the tab is already first', () => {
+    const newState = reducer(initialState, moveTabToFirstPlace('1'));
+
+    expect(newState.tabs).toEqual(initialState.tabs);
+  });
+
+  it('should do nothing if the tab does not exist', () => {
+    const newState = reducer(initialState, moveTabToFirstPlace('999'));
+
+    expect(newState.tabs).toEqual(initialState.tabs);
   });
 });

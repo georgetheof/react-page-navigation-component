@@ -13,13 +13,7 @@ interface PageTabProps extends Tab {
   withSettings?: boolean;
 }
 
-function PageTab({
-  id,
-  label,
-  iconPack = 'ci',
-  iconName = 'CiViewList',
-  withSettings = true,
-}: PageTabProps) {
+function PageTab({ id, label, iconPack = 'ci', iconName = 'CiViewList', withSettings = true }: PageTabProps) {
   const dispatch = useAppDispatch();
   const { activeTabId } = useAppSelector((state) => state.tabs);
 
@@ -31,7 +25,9 @@ function PageTab({
     <button
       type='button'
       className={
-        (activeTabId === id ? ' border border-gray-200 bg-white text-gray-900 cursor-default ' : ' bg-gray-100 text-gray-500 cursor-pointer ') +
+        (activeTabId === id
+          ? ' border border-gray-200 bg-white text-gray-900 cursor-default '
+          : ' bg-gray-100 text-gray-500 cursor-pointer ') +
         ' z-1 relative hover:bg-gray-200 focus:bg-white focus:ring-1 focus:outline-none focus:ring-black-100 font-medium rounded-lg text-sm px-2.5 py-1.5 text-center inline-flex items-center gap-1.5'
       }
       onClick={onTabClick}
@@ -40,7 +36,7 @@ function PageTab({
       {label}
       {withSettings && (
         <span className={activeTabId === id ? 'flex' : 'hidden' + ' cursor-pointer'}>
-          <PageTabSettings />
+          <PageTabSettings id={id} />
         </span>
       )}
     </button>

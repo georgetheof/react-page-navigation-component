@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { nanoid } from '@reduxjs/toolkit';
 import { type Tab } from '../../../types';
+import { arrayMove } from '@dnd-kit/sortable';
 
 export interface TabsState {
   tabs: Tab[];
@@ -26,8 +27,14 @@ const tabsSlice = createSlice({
     setTabs: (state, action: PayloadAction<Tab[]>) => {
       state.tabs = action.payload;
     },
+    moveTabToFirstPlace: (state, action: PayloadAction<string>) => {
+      const tabIndex = state.tabs.findIndex((tab) => tab.id === action.payload);
+      if (tabIndex > 0) {
+        state.tabs = arrayMove(state.tabs, tabIndex, 0);
+      }
+    },
     addTabBetween: (state, action: PayloadAction<number>) => {
-      const newTab: Tab = { id: nanoid(), label: `Tab ${state.tabs.length + 1}` };
+      const newTab: Tab = { id: nanoid(), label: 'New Tab' };
       state.tabs.splice(action.payload + 1, 0, newTab);
     },
     removeTab: (state, action: PayloadAction<string>) => {
@@ -39,5 +46,5 @@ const tabsSlice = createSlice({
   },
 });
 
-export const { setActiveTab, setTabs, addTabBetween, removeTab } = tabsSlice.actions;
+export const { setActiveTab, setTabs, moveTabToFirstPlace, addTabBetween, removeTab } = tabsSlice.actions;
 export default tabsSlice.reducer;
