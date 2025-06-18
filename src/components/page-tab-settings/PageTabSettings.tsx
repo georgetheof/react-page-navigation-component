@@ -32,7 +32,7 @@ function PageTabSettings() {
         data-popover
         id='popover-click'
         role='tooltip'
-        className={`absolute left-0 top-[-240px] z-10 w-64 text-sm bg-white cursor-default border border-gray-200 rounded-lg shadow-md transition-opacity duration-200 
+        className={`absolute left-0 top-[-245px] z-10 w-64 text-sm bg-white cursor-default border border-gray-200 rounded-lg shadow-md transition-opacity duration-200 
         ${visible ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
       >
         {/* Header */}
@@ -41,44 +41,29 @@ function PageTabSettings() {
         </div>
 
         {/* Body */}
-        <section>
-          <button
-            type='button'
-            className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'
-          >
+        <ul className='py-1'>
+          <li className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'>
             <DynamicIcon pack='io' iconName='IoIosFlag' color='blue' size={18} /> Set as first page
-          </button>
+          </li>
 
-          <button
-            type='button'
-            className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'
-          >
+          <li className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'>
             <DynamicIcon pack='lu' iconName='LuPenLine' size={18} color='gray' /> Rename
-          </button>
+          </li>
 
-          <button
-            type='button'
-            className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'
-          >
+          <li className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'>
             <DynamicIcon pack='lu' iconName='LuClipboard' size={18} color='gray' /> Copy
-          </button>
+          </li>
 
-          <button
-            type='button'
-            className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'
-          >
+          <li className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer hover:bg-gray-50'>
             <DynamicIcon pack='pi' iconName='PiCopyLight' size={18} color='gray' /> Duplicate
-          </button>
+          </li>
 
           <hr className='text-gray-200 mx-3 my-1' />
 
-          <button
-            type='button'
-            className='w-full flex items-center justify-start gap-1.5 px-3 py-2 cursor-pointer text-red-600 hover:bg-gray-50'
-          >
+          <li className='w-full flex items-center justify-start gap-1.5 px-3 py-2  cursor-pointer text-red-600 hover:bg-gray-50'>
             <DynamicIcon pack='lu' iconName='LuTrash2' size={18} color='red' /> Delete
-          </button>
-        </section>
+          </li>
+        </ul>
 
         {/* Arrow (optional for Popper.js positioning) */}
         <div data-popper-arrow></div>
