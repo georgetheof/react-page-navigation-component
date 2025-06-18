@@ -60,7 +60,7 @@ function PageNavigation() {
 
   return (
     <section className='h-screen flex-center bg-white'>
-      <div className='bg-white flex items-stretch justify-center p-2.5'>
+      <div className='bg-white flex items-stretch justify-center flex-col md:flex-row p-2.5'>
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <SortableContext items={displayedElements} strategy={verticalListSortingStrategy}>
             {displayedElements.map((el, idx) => {
@@ -69,9 +69,9 @@ function PageNavigation() {
                   return (
                     <div
                       key={idx}
-                      className='group relative transition-[width] duration-300 ease-in-out w-[40px] hover:w-[75px] flex-center'
+                      className='group relative m-auto transition-[height] md:transition-[width] duration-300 ease-in-out w-[40px] hover:w-[75px] h-[45px] hover:h-[75px] md:h-auto md:hover:h-auto flex-center'
                     >
-                      <div className='absolute w-full border border-dashed border-black m-0'></div>
+                      <div className='absolute w-full border border-dashed border-black m-0 transform md:transform-none rotate-90 md:rotate-none'></div>
                       <div className='z-1 flex-center invisible group-hover:visible'>
                         <AddFabButton onAddClick={() => addNewTabToIndex(idx - 1)} />
                       </div>

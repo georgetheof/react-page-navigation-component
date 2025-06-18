@@ -32,7 +32,7 @@ function PageTab({
       type='button'
       className={
         (activeTabId === id ? ' border border-gray-200 bg-white text-gray-900 cursor-default ' : ' bg-gray-100 text-gray-500 cursor-pointer ') +
-        ' relative hover:bg-gray-100 focus:bg-white focus:ring-1 focus:outline-none focus:ring-black-100 font-medium rounded-lg text-sm px-2.5 py-1.5 text-center inline-flex items-center gap-1.5'
+        ' z-1 relative hover:bg-gray-100 focus:bg-white focus:ring-1 focus:outline-none focus:ring-black-100 font-medium rounded-lg text-sm px-2.5 py-1.5 text-center inline-flex items-center gap-1.5'
       }
       onClick={onTabClick}
     >
