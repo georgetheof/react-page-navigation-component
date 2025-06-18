@@ -59,7 +59,7 @@ function PageNavigation() {
   }
 
   return (
-    <section className='h-screen flex-center bg-white'>
+    <section className='flex-1 flex-center bg-white'>
       <div className='bg-white flex items-stretch justify-center flex-col md:flex-row p-2.5'>
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <SortableContext items={displayedElements} strategy={verticalListSortingStrategy}>

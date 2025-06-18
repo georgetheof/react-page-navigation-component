@@ -24,6 +24,7 @@ function PageTabSettings({ id }: Pick<Tab, 'id'>) {
   return (
     <div className='inline-block' ref={popoverRef}>
       <span
+        data-testid='popover-trigger'
         data-popover-target='popover-click'
         data-popover-trigger='click'
         className='cursor-pointer'
