@@ -8,11 +8,9 @@ export default defineConfig({
   optimizeDeps: {
     include: [
       'react-icons/fa',
-      'react-icons/md',
       'react-icons/bs',
       'react-icons/ci',
       'react-icons/io',
-      'react-icons/sl',
       'react-icons/cg',
       'react-icons/lu',
       'react-icons/pi',

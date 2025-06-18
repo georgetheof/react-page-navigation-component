@@ -6,11 +6,9 @@ import type { IconPack } from '../../../types';
 const loadIcon = (pack: string, iconName: string) => {
   const importer = {
     fa: () => import('react-icons/fa'),
-    md: () => import('react-icons/md'),
     bs: () => import('react-icons/bs'),
     ci: () => import('react-icons/ci'),
     io: () => import('react-icons/io'),
-    sl: () => import('react-icons/sl'),
     cg: () => import('react-icons/cg'),
     lu: () => import('react-icons/lu'),
     pi: () => import('react-icons/pi'),
@@ -35,7 +33,7 @@ const loadIcon = (pack: string, iconName: string) => {
   });
 };
 
-type LazyIconProps = {
+type DynamicIconProps = {
   pack: IconPack;
   iconName: string;
   size?: number;
@@ -43,7 +41,7 @@ type LazyIconProps = {
   iconClick?: () => void;
 };
 
-export function DynamicIcon({ pack, iconName, size = 24, color, iconClick }: LazyIconProps) {
+export function DynamicIcon({ pack, iconName, size = 24, color, iconClick }: DynamicIconProps) {
   const Icon = useMemo(() => loadIcon(pack, iconName), [pack, iconName]);
 
   return (

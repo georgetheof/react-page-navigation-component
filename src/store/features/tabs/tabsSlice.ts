@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { nanoid } from '@reduxjs/toolkit';
 import { type Tab } from '../../../types';
 
-interface TabsState {
+export interface TabsState {
   tabs: Tab[];
   activeTabId: string | null;
 }
